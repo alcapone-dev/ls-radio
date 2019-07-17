@@ -15,6 +15,12 @@ It enables us to use the radio joining/switching/exiting from 1MHz to 100 MHz (1
 
 For working you must add item `radio` in your database
 
+
+### Contact with me
+
+Discord: alcapone#4247
+Steam: https://steamcommunity.com/id/r0mang/
+
 ### Screenshots
 
 ![Screenshot](https://i.imgur.com/TtcLelA.jpg)
