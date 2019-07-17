@@ -1,5 +1,7 @@
 # ls-radio
 
+## Created for LS-Story.pl by AlCapone
+
 ### Requirements
 * ESX (https://github.com/ESX-Org/es_extended)
 * mythic_notify (https://github.com/mythicrp/mythic_notify)
