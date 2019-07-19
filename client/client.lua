@@ -143,6 +143,21 @@ AddEventHandler('ls-radio:use', function()
   enableRadio(true)
 end)
 
+RegisterNetEvent('ls-radio:onRadioDrop')
+AddEventHandler('ls-radio:onRadioDrop', function(source)
+  local playerName = GetPlayerName(source)
+  local getPlayerRadioChannel = exports.tokovoip_script:getPlayerData(playerName, "radio:channel")
+
+
+  if getPlayerRadioChannel ~= "nil" then
+
+    exports.tokovoip_script:removePlayerFromRadio(getPlayerRadioChannel)
+    exports.tokovoip_script:setPlayerData(playerName, "radio:channel", "nil", true)
+    exports['ls_notify']:DoHudText('inform', Config.messages['you_leave'] .. getPlayerRadioChannel .. '.00 MHz </b>')
+
+end
+end)
+
 Citizen.CreateThread(function()
     while true do
         if radioMenu then
