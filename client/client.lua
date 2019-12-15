@@ -153,7 +153,7 @@ AddEventHandler('ls-radio:onRadioDrop', function(source)
 
     exports.tokovoip_script:removePlayerFromRadio(getPlayerRadioChannel)
     exports.tokovoip_script:setPlayerData(playerName, "radio:channel", "nil", true)
-    exports['ls_notify']:DoHudText('inform', Config.messages['you_leave'] .. getPlayerRadioChannel .. '.00 MHz </b>')
+    exports['mythic_notify']:DoHudText('inform', Config.messages['you_leave'] .. getPlayerRadioChannel .. '.00 MHz </b>')
 
 end
 end)
