@@ -20,11 +20,8 @@ Citizen.CreateThread(function()
         local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
           if xPlayer ~= nil then
               if xPlayer.getInventoryItem('radio').count == 0 then
-
                 local source = xPlayers[i]
-                TriggerClientEvent('ls-radio:onRadioDrop', source)
-
-                break
+				TriggerEvent("TokoVoip:removePlayerFromAllRadio", source)
               end
             end
           end
