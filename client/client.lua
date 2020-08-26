@@ -48,9 +48,12 @@ end
 --- sprawdza czy komenda /radio jest włączony
 
 RegisterCommand('radio', function(source, args)
-    if Config.enableCmd then
-      enableRadio(true)
-    end
+  TriggerServerEvent("ls-radio:checkcount")
+end)
+
+RegisterNetEvent('ls-radio:hasradio')
+AddEventHandler('ls-radio:hasradio', function()
+  enableRadio(true)
 end, false)
 
 

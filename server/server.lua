@@ -9,8 +9,21 @@ ESX.RegisterUsableItem('radio', function(source)
 
 end)
 
+-- Only opens radio with /radio if player has item
 
--- checking is player have item
+RegisterServerEvent('ls-radio:checkcount')
+AddEventHandler('ls-radio:checkcount', function()
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	if xPlayer.getInventoryItem('radio').count >= 1 then
+		TriggerClientEvent('ls-radio:hasradio', _source)
+	else 
+		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'You dont have a radio, buy one at your local store', length = 7000})
+	end
+end)
+
+
+-- Removes player from radio channel if radio item is lost
 
 Citizen.CreateThread(function()
   while true do
@@ -22,9 +35,7 @@ Citizen.CreateThread(function()
               if xPlayer.getInventoryItem('radio').count == 0 then
 
                 local source = xPlayers[i]
-                TriggerClientEvent('ls-radio:onRadioDrop', source)
-
-                break
+                TriggerEvent("TokoVoip:removePlayerFromAllRadio", source)
               end
             end
           end
